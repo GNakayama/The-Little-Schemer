@@ -15,3 +15,10 @@
       ((null? l) #f)
       ((eq? a (car l)) #t)
       (else (member? a (cdr l))))))
+
+(define rmember
+  (lambda (a lat)
+    (cond
+      ((null? lat) '())
+      ((eq? a (car lat)) (cdr lat))
+      (else (cons (car lat) (rmember a (cdr lat)))))))
